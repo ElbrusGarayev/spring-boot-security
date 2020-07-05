@@ -1,0 +1,15 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<list>
+    <li><a href="/guest">area for GUESTS</a></li>
+    <li><a href="/index">area for ANY AUTHENTICATED</a></li>
+    <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">area for ADMIN role</a></li>
+    <li sec:authorize="hasRole('ROLE_USER')"><a href="/user">area for USER role</a></li>
+    <li sec:authorize="hasAuthority('ACCESS_TEST1')"><a href="/access-testing/test1">Access testing 1</a></li>
+    <li sec:authorize="hasAuthority('ACCESS_TEST2')"><a href="/access-testing/test2">Access testing 2</a></li>
+    <li sec:authorize="isAnonymous()"><a href="/login">login</a></li>
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="Logout">
+    </form>
+</list>
+</html>

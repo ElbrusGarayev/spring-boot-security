@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<style>
+    .sign{
+        margin-right: 28px;
+    }
+</style>
+<body>
+<div class="wrapper">
+    <div class="container">
+        <h1>Welcome</h1>
+
+        <form class="form" method="post" th:action="@{/signin}">
+            <input type="text" placeholder="Username" name="uname">
+            <input type="password" placeholder="Password" name="pass">
+            <button type="submit" id="login-button">Login</button>
+            <br>
+            <div th:if="${param.error}" class="alert alert-danger">Invalid username or password!</div>
+            <br>
+            <br>
+            <span><a href="/user/register" class="sign">Sign up</a></span>
+            <a href="/user/account-recovery">Forgot Password?</a>
+            <div></div>
+        </form>
+    </div>
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    $("#login-button").click(function(event){
+        event.preventDefault();
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+    });
+</script>
+</body>
+</html>
